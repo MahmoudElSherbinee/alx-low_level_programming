@@ -22,15 +22,15 @@ int main(void)
 	c = c + 1;
 };
 	/*Upper case*/
-	char C;
+	char x;
 
-	C = 'A';
+	x = 'A';
 
-	while (C <= 'Z')
+	while (x <= 'Z')
 {
-	putchar(C);
+	putchar(x);
 
-	C = C + 1;
+	x = x + 1;
 };
 	putchar('\n');
 	return (0);
