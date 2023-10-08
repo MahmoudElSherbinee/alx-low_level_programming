@@ -11,7 +11,7 @@
 int main(void)
 {
 	int x = 0;
-	int y = 0;
+	int y;
 
 	while (x <= 99)
 {
@@ -23,7 +23,7 @@ int main(void)
 	putchar(' ');
 	putchar((y / 10) + '0');
 	putchar((y % 10) + '0');
-	if (x != 99 || y != 99)
+	if (x != 98 || y != 99)
 {
 	putchar(',');
 	putchar(' ');
@@ -32,5 +32,6 @@ int main(void)
 }
 	x++;
 }
+	putchar('\n');
 	return (0);
 }
