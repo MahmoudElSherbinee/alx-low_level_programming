@@ -7,18 +7,19 @@
  *
  * Return: Always 0 (success)
 */
+
 int main(void)
 {
 	/*putchar() print a character*/
-	int putchar(int a)
-{
-	int a;
+	char c;
 
-	while (a <= z)
+	c = 'a';
+
+	while (c <= 'z')
 {
-	putchar("%c \n");
-	a = a + 1;
-}
-}
+	putchar(c);
+	putchar('\n');
+	c = c + 1;
+};
 	return (0);
 }
