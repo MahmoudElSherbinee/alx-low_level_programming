@@ -12,24 +12,21 @@ int main(void)
 {
 	/*putchar() print a character*/
 	char c;
+	char x;
 
 	c = 'a';
 
 	while (c <= 'z')
 {
 	putchar(c);
-
 	c = c + 1;
 }
 	/*Upper case*/
-	char x;
-
 	x = 'A';
 
 	while (x <= 'Z')
 {
 	putchar(x);
-
 	x = x + 1;
 }
 	putchar('\n');
