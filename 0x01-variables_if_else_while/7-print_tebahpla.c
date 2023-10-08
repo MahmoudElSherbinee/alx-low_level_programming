@@ -19,9 +19,9 @@ int main(void)
 	z--;
 	if (z == 'a' - 1)
 {
-	putchar('\n');
-	return (1);
+	break;
 }
 }
+	putchar('\n);
 	return (0);
 }
