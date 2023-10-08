@@ -16,22 +16,22 @@ int main(void)
 	c = 'a';
 
 	while (c <= 'z')
-	{
-		putchar(c);
+{
+	putchar(c);
 
-		c = c + 1;
-	};
+	c = c + 1;
+};
 	/*Upper case*/
 	char C;
 
 	C = 'A';
 
 	while (C <= 'Z')
-	{
-		putchar(C);
+{
+	putchar(C);
 
-i		C = C + 1;
-	};
+	C = C + 1;
+};
 	putchar('\n');
 	return (0);
 }
