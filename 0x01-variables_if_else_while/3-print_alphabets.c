@@ -20,7 +20,7 @@ int main(void)
 	putchar(c);
 
 	c = c + 1;
-};
+}
 	/*Upper case*/
 	char x;
 
@@ -31,7 +31,7 @@ int main(void)
 	putchar(x);
 
 	x = x + 1;
-};
+}
 	putchar('\n');
 	return (0);
 }
