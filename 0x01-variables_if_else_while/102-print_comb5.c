@@ -18,6 +18,8 @@ int main(void)
 	y = x;
 	while (y <= 99)
 {
+	if (y != x)
+{
 	putchar((x / 10) + '0');
 	putchar((x % 10) + '0');
 	putchar(' ');
@@ -27,6 +29,7 @@ int main(void)
 {
 	putchar(',');
 	putchar(' ');
+}
 }
 	y++;
 }
