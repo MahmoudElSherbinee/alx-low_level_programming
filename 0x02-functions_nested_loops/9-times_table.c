@@ -19,6 +19,6 @@ void times_table(void)
 {
 	int table = r * c;
 }
-	printf("%d, ", table);
+	printf("%22d, ", table);
 }
 }
