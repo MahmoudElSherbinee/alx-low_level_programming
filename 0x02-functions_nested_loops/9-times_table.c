@@ -19,7 +19,8 @@ void times_table(void)
 	for (c = 0; c <= 9; c++)
 {
 	table = r * c;
+	printf("%2d, ", table);
 }
-	printf("%22d, ", table);
+	printf("\n");
 }
 }
