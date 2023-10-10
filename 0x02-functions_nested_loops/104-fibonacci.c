@@ -18,7 +18,7 @@ int main(void)
 
 	while (i <= n)
 {
-		int next = fib1 + fib2;
+		unsigned long next = fib1 + fib2;
 
 		if (i == n)
 {
