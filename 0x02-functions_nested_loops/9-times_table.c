@@ -19,7 +19,14 @@ void times_table(void)
 	for (c = 0; c <= 9; c++)
 {
 	table = r * c;
-	printf("%2d, ", table);
+	if (c == 9)
+{
+	printf("%2d", result);
+}
+	else
+{
+	printf("%2d, ", result);
+}
 }
 	printf("\n");
 }
