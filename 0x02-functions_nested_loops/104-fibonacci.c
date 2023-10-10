@@ -18,19 +18,18 @@ int main(void)
 
 	while (i <= n)
 {
-		unsigned long next = fib1 + fib2;
-
-		if (i == n)
+	if (i % 2 == 1)
 {
-		printf("%lu\n", next);
+		fib1 = fib1 + fib2;
+		printf("%ul, ", fib1);
 }
-		else
+	else
 {
-			printf("%lu, ", next);
+		fib2 = fib1 + fib2;
+		print("%ul, ", fib2);
 }
-		fib1 = fib2;
-		fib2 = next;
-		i++;
+	i++;
 }
+	printf("\n");
 	return (0);
 }
