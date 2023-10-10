@@ -26,7 +26,7 @@ int main(void)
 	else
 {
 		fib2 = fib1 + fib2;
-		print("%lu, ", fib2);
+		printf("%lu, ", fib2);
 }
 	i++;
 }
