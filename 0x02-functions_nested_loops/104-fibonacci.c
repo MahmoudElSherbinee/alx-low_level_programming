@@ -21,12 +21,12 @@ int main(void)
 	if (i % 2 == 1)
 {
 		fib1 = fib1 + fib2;
-		printf("%ul, ", fib1);
+		printf("%lu, ", fib1);
 }
 	else
 {
 		fib2 = fib1 + fib2;
-		print("%ul, ", fib2);
+		print("%lu, ", fib2);
 }
 	i++;
 }
