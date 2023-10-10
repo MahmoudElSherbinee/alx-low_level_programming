@@ -16,7 +16,9 @@ int main(void)
 	unsigned long next;
 
 	printf("%lu, %lu, ", fib1, fib2);
-	int i = 3;
+	int i;
+
+	i = 3;
 
 	while (i <= n)
 {
