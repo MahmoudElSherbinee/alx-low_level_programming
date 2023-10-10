@@ -25,6 +25,10 @@ void print_times_table(int n)
 {
 			printf("%3d", table);
 }
+		else if (c == 0)
+{
+		printf("0, ");
+}
 		else
 {
 			printf("%3d, ", table);
