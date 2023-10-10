@@ -11,9 +11,9 @@
 int main(void)
 {
 	int n = 50;
-	unsigned long long fib1 = 1;
-	unsigned long long fib2 = 2;
-	unsigned long long next;
+	unsigned long fib1 = 1;
+	unsigned long fib2 = 2;
+	unsigned long next;
 
 	printf("%llu, %llu, ", fib1, fib2);
 	for (int i = 3; i <= n; i++)
