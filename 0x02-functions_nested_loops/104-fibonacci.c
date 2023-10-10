@@ -12,9 +12,11 @@ int main(void)
 	int n = 98;
 	int fib1 = 1;
 	int fib2 = 2;
+	int i = 3;
 
 	printf("%d, %d, ", fib1, fib2);
-	for (int i = 3; i <= n; i++)
+
+	while (i <= n)
 {
 		int next = fib1 + fib2;
 
@@ -28,6 +30,7 @@ int main(void)
 }
 		fib1 = fib2;
 		fib2 = next;
+		i++;
 }
 	return (0);
 }
