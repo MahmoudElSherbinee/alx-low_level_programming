@@ -12,28 +12,12 @@
 
 void print_times_table(int n)
 {
-	int r;
-	int c;
-	int table;
-
-	for (r = 0; r <= n; r++)
+	if (n < 0 || n > 15)
 {
-	for (c = 0; c <= n; c++)
-{
-		table = r * c;
-		if (c == n)
-{
-			printf("%3d", table);
+	return ();
 }
-		else if (c == 0)
+	for (int i = 0; i <= 10; i++)
 {
-		printf("0, ");
-}
-		else
-{
-			printf("%3d, ", table);
-}
-}
-	printf("\n");
+		printf("%d * %d = %d\n", i, n, i * n);
 }
 }
