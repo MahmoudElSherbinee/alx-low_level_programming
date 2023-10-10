@@ -10,11 +10,11 @@
 int main(void)
 {
 	int n = 98;
-	int fib1 = 1;
-	int fib2 = 2;
+	unsigned long int fib1 = 1;
+	unsigned long int fib2 = 2;
 	int i = 3;
 
-	printf("%d, %d, ", fib1, fib2);
+	printf("%lu, %lu, ", fib1, fib2);
 
 	while (i <= n)
 {
@@ -22,11 +22,11 @@ int main(void)
 
 		if (i == n)
 {
-		printf("%d\n", next);
+		printf("%lu\n", next);
 }
 		else
 {
-			printf("%d, ", next);
+			printf("%lu, ", next);
 }
 		fib1 = fib2;
 		fib2 = next;
