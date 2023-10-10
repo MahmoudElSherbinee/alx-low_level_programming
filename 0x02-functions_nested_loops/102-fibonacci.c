@@ -16,10 +16,11 @@ int main(void)
 	unsigned long next;
 
 	printf("%lu, %lu, ", fib1, fib2);
-	for (int i = 3; i <= n; i++)
+	int i = 3;
+
+	while (i <= n)
 {
 	next = fib1 + fib2;
-
 	if (i == n)
 {
 	printf("%lu\n", next);
@@ -30,6 +31,7 @@ int main(void)
 }
 	fib1 = fib2;
 	fib2 = next;
+	i++;
 }
 	return (0);
 }
