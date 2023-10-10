@@ -1,4 +1,5 @@
 #include <stdio.h>
+#include "main.h"
 
 /**
  * main - this is the master function
@@ -10,6 +11,6 @@
 
 int main(void)
 {
-	printf("_putchar");
+	printf("_putchar\n");
 	return (0);
 }
