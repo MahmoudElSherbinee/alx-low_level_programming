@@ -23,6 +23,10 @@ void times_table(void)
 {
 	printf("%2d", table);
 }
+	else if (c == 0)
+{
+	printf("%d,", c);
+}
 	else
 {
 	printf("%2d, ", table);
