@@ -11,8 +11,9 @@
 int main(void)
 {
 	int sum = 0;
+	int i = 3;
 
-	for (int i = 3; i < 1024; i++)
+	while (i < 1024)
 {
 	if (i % 3 == 0 || i % 5 == 0)
 {
