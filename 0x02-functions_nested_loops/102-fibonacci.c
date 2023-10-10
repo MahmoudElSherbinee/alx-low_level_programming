@@ -14,10 +14,9 @@ int main(void)
 	unsigned long fib1 = 1;
 	unsigned long fib2 = 2;
 	unsigned long next;
-
-	printf("%lu, %lu, ", fib1, fib2);
 	int i;
 
+	printf("%lu, %lu, ", fib1, fib2);
 	i = 3;
 
 	while (i <= n)
