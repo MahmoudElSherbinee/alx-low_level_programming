@@ -1,25 +1,25 @@
 #include <stdio.h>
 
 /**
- * numLength - this is the master function
+ * nLn - this is the master function
  *
- * @num: enable us to write a standard output
+ * @n: enable us to write a standard output
  *
  * Return: number of digist in num
  */
 
-int numLength(int num)
+int nLn(int n)
 {
-	int length = 0;
+	int ln = 0;
 
-	if (!num)
+	if (!n)
 		return (1);
-	while (num)
+	while (n)
 {
-		num = num / 10;
-		length = length + 1;
+		n = n / 10;
+		ln = ln + 1;
 }
-	return (length);
+	return (ln);
 }
 
 /**
@@ -32,36 +32,36 @@ int numLength(int num)
 
 int main(void)
 {
-	int count;
-	int initial0s;
-	unsigned long f1 = 1;
-	unsigned long f2 = 2;
+	int c;
+	int i;
+	unsigned long fib1 = 1;
+	unsigned long fib2 = 2;
 	unsigned long sum;
 	unsigned long max = 100000000;
-	unsigned long f1o = 0;
-	unsigned long f2o = 0;
+	unsigned long fib01 = 0;
+	unsigned long fib02 = 0;
 	unsigned long sumo = 0;
 
-	for (count = 1; count <= 98; count++)
+	for (c = 1; c <= 98; c++)
 {
-	if (f1o > 0)
-		printf("%lu", f1o);
-	initial0s = numLength(max) - 1 - numLength(f1);
-	while (f1o > 0 && initial0s > 0)
+	if (fib01 > 0)
+		printf("%lu", fib01);
+	i = nLn(max) - 1 - nLn(fib1);
+	while (fib01 > 0 && i > 0)
 	{
 		printf("%d", 0);
-		initial0s--;
+		i--;
 	}
-	printf("%lu", f1);
+	printf("%lu", fib1);
 
-	sum = (f1 + f2) % max;
-	sumo = f1o + f2o + (f1 + f2) / max;
-	f1 = f2;
-	f1o = f2o;
-	f2 = sum;
-	f2o = sumo;
+	sum = (fib1 + fib2) % max;
+	sumo = fib01 + fib02 + (fib1 + fib2) / max;
+	fib1 = fib2;
+	fib01 = fib02;
+	fib2 = sum;
+	fib02 = sumo;
 
-	if (count != 98)
+	if (c != 98)
 		printf(", ");
 	else
 		printf("\n");
