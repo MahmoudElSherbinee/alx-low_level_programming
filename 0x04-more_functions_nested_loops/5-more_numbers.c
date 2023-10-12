@@ -11,9 +11,12 @@
 
 void more_numbers(void)
 {
-	for (int r = 0; r < 10; r++)
+	int r;
+	int i;
+
+	for (r = 0; r < 10; r++)
 {
-	for (int i = 0; i < 15; i++)
+	for (i = 0; i < 15; i++)
 {
 	printf("%d", i);
 }
