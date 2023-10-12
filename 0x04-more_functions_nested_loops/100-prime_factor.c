@@ -37,6 +37,7 @@ double _sqrt(double x)
 long find_largest_prime_factor(long n)
 {
 	long largest_prime;
+	long i;
 
 	largest_prime = -1;
 	while (n % 2 == 0)
@@ -44,7 +45,7 @@ long find_largest_prime_factor(long n)
 	largest_prime = 2;
 	n /= 2;
 }
-	for (long i = 3; i <= _sqrt(n); i += 2)
+	for (i = 3; i <= _sqrt(n); i += 2)
 {
 	while (n % i == 0)
 {
