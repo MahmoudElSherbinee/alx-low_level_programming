@@ -3,9 +3,9 @@
 /**
  * main - prints the numbers from 1 to 100
  *
- * Description: check the inputs
+ * Description: count from 1 to 100 with Fizz Bizz FizzBuzz
  *
- * Return: 0 if the input is upper and 1 if it's not
+ * Return: 0 Always (success)
 */
 
 int main(void)
