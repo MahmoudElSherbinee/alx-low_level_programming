@@ -2,9 +2,11 @@
 #include "main.h"
 
 /**
- * print_number - Prints an integer
+ * print_number - this is the master function
  *
- * @n: The integer to print
+ * Description: This function print the integar
+ *
+ * @n: check the input of integar
 */
 
 
