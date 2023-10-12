@@ -5,7 +5,7 @@
  * print_number - Prints an integer
  * @n: The integer to print
  */
-#include "main.h"
+
 
 void print_number(int n)
 {
