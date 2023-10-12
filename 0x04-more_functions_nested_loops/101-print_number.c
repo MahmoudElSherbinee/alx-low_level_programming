@@ -2,13 +2,13 @@
 #include "main.h"
 
 /**
- * print_number - this is the master function
+ * print_number - Prints an integer
+ * @n: The integer to print
  *
- * Description: This function print the integar
+ * Description: This function prints an integer.
  *
- * @n: check the input of integar
+ * Return: (void)
 */
-
 
 void print_number(int n)
 {
