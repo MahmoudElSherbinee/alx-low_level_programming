@@ -1,6 +1,5 @@
 #include "main.h"
-#include <limits.h>
-#include <ctype.h>
+
 /**
 * _atoi - writes the character c to stdout
 * @s: The character to print
@@ -14,20 +13,21 @@ int _atoi(char *s)
 
 	int sign = 1;
 
-	while (*s && !isdigit(*s))
+	while (*s)
 	{
 		if (*s == '-')
 		{
-			sign = -1;
+			sign = sign * -1;
+		}
+		else if (*s >= '0' && *s <= '9')
+		{
+			result = (result * 10) + (*s - '0');
+		}
+		else if (result > 0)
+		{
+			break;
 		}
 		s++;
 	}
-
-	while (*s && isdigit(*s))
-	{
-		result = result * 10 + (*s - '0');
-		s++;
-	}
-
 	return (result * sign);
 }

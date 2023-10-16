@@ -10,14 +10,14 @@
 
 int main(void)
 {
-	int password[64], i, sum = 0, n;
+	int pass[64], i, sum = 0, n;
 
 	srand(time(NULL));
 	for (i = 0; i < 64; i++)
 	{
-		password[i] = rand() % 78;
-		sum += password[i] + '0';
-		putchar(password[i] + '0');
+		pass[i] = rand() % 78;
+		sum += pass[i] + '0';
+		putchar(pass[i] + '0');
 		if ((2772 - sum) - '0' < 78)
 		{
 			n = 2772 - sum - '0';
