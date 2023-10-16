@@ -2,12 +2,11 @@
 #include <limits.h>
 
 /**
-* _atoi - writes the character c to stdout
-* @s: The character to print
+* _atoi - Converts a string to an integer.
+* @s: The string to convert.
 *
-* Return: On success 1.
+* Return: The integer value.
 */
-
 int _atoi(char *s)
 {
 	int sign = 1;
@@ -27,11 +26,13 @@ int _atoi(char *s)
 
 	while (s[i] >= '0' && s[i] <= '9')
 	{
-		if (result > (INT_MAX - (s[i] - '0')) / 10)
+		int digit = s[i] - '0';
+
+		if (result > (INT_MAX - digit) / 10)
 		{
-			return (sign == 1) ? INT_MAX : INT_MIN;
+			return ((sign == 1) ? INT_MAX : INT_MIN);
 		}
-		result = result * 10 + (s[i] - '0');
+		result = result * 10 + digit;
 		i++;
 	}
 
