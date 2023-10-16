@@ -1,5 +1,6 @@
 #include "main.h"
 #include <limits.h>
+#include <ctype.h>
 /**
 * _atoi - writes the character c to stdout
 * @s: The character to print
