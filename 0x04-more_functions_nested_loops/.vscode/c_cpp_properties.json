@@ -1,0 +1,14 @@
+{
+    "configurations": [
+        {
+            "name": "Linux",
+            "includePath": [
+                "wsl.localhost"
+            ],
+            "defines": [],
+            "compilerPath": "/usr/bin",
+            "cStandard": "c89"
+        }
+    ],
+    "version": 4
+}
