@@ -1,7 +1,7 @@
 #include "main.h"
 
 /**
-* puts2 - writes the character c to stdout
+* puts_half- writes the character c to stdout
 * @str: The character to print
 *
 * Return: On success 1.
@@ -9,15 +9,15 @@
 
 void puts_half(char *str)
 {
-	int i;
+	int x;
 
-	for (i = 0; str[i] != '\0'; i++)
+	for (x = 0; str[x] != '\0'; x++)
 	{
-		i++;
+		x++;
 	}
-	for (i /= 2; str[i] != '\0'; i++)
+	for (x /= 2; str[x] != '\0'; x++)
 	{
-		_putchar(str[i]);
+		_putchar(str[x]);
 	}
 	_putchar('\n');
 }
