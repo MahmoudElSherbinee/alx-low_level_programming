@@ -15,17 +15,17 @@ void rev_string(char *s)
 	{
 		length++;
 	}
-	int start = 0;
+	int a = 0;
 
-	int end = length - 1;
+	int z = length - 1;
 
-	while (start < end)
+	while (a < z)
 	{
-		char swap = s[start];
+		char swap = s[a];
 
-		s[start] = s[end];
-		s[end] = swap;
-		start++;
-		end--;
+		s[a] = s[z];
+		s[z] = swap;
+		a++;
+		z--;
 	}
 }
