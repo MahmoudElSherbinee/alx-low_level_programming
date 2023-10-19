@@ -20,8 +20,8 @@ char *infinite_add(char *n1, char *n2, char *r, int size_r)
     int length2;
     int bigger;
     int x;
-    int n1_digit;
-    int n2_digit;
+    int n1digit;
+    int n2digit;
     int carry;
 
     length1 = 0;
@@ -60,24 +60,24 @@ char *infinite_add(char *n1, char *n2, char *r, int size_r)
 
         if (length1 >= 0)
         {
-            n1_digit = n1[length1] - 48;
+            n1digit = n1[length1] - 48;
         }
         else
         {
-            n1_digit = 0;
+            n1digit = 0;
         }
 
         if (length2 >= 0)
         {
-            n2_digit = n2[length2] - 48;
+            n2digit = n2[length2] - 48;
         }
         else
         {
-            n2_digit = 0;
+            n2digit = 0;
         }
 
-        r[x] = (n1_digit + n2_digit + carry) % 10 + 48;
-        carry = (n1_digit + n2_digit + carry) / 10;
+        r[x] = (n1digit + n2digit + carry) % 10 + 48;
+        carry = (n1digit + n2digit + carry) / 10;
     }
 
     if (carry == 1)
