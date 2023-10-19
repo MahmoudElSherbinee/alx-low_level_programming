@@ -1,20 +1,35 @@
 #include "main.h"
 
 /**
- * infinite_add - Adds two numbers.
- *
- * @n1: First Number
- * @n2: Secend Number
- * @r: Buffer Where to store the result
- * @size_r: Size of the buffer r
- *
- * Return: Pointer to the buffer r or 0 if the buffer can fit the result
- */
+* infinite_add - Adds two numbers.
+*
+* @n1: First Number
+* @n2: Secend Number
+* @r: Buffer Where to store the result
+* @size_r: Size of the buffer r
+*
+* Return: Pointer to the buffer r or 0 if the buffer can fit the result
+*/
 char *infinite_add(char *n1, char *n2, char *r, int size_r)
 {
-	int i, l1, l2, bigger, i = 0, s, carry = 0;
+	int i;
+
+	int l1;
+
+	int l2;
+
+	int bigger;
+
+	int i;
+
+	int s;
+
+	int carry;
+
 	char t;
 
+	carry = 0;
+	i = 0;
 	l1 = _strlen(n1);
 	l2 = _strlen(n2);
 
@@ -50,16 +65,20 @@ char *infinite_add(char *n1, char *n2, char *r, int size_r)
 }
 
 /**
- * _strlen - Calculate the lenght of a string.
- *
- * @str: String
- *
- * Return: Lenght of str
- */
+* _strlen - Calculate the lenght of a string.
+*
+* @str: String
+*
+* Return: Lenght of str
+*/
 
 int _strlen(char *str)
 {
-	int i, len = 0;
+	int i;
+
+	int len;
+
+	len = 0;
 
 	for (i = 0; str[i]; i++)
 		len++;
