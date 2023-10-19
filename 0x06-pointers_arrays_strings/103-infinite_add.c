@@ -2,15 +2,10 @@
 
 /**
  * infinite_add - function for adding two intergers
- *
  * @n1: check the input
- * 
  * @n2: check the input
- * 
  * @r: check the input
- * 
  * @size_r: check the input
- * 
  * Return: the char
  */
 
