@@ -14,7 +14,7 @@ char *cap_string(char *n)
 
 	int x;
 
-	char separators[] = " \t\n,;.!\"(){}";
+	char separators[] = " \t\n,.!?\"(){}";
 
 	for (x = 0; separators[x] != '\0'; x++)
 	{
