@@ -25,6 +25,7 @@ int separator(char c)
 {
 	int x;
 	char separators[13];
+
 separators[0] = ' ';
 separators[1] = '\t';
 separators[2] = '\n';
