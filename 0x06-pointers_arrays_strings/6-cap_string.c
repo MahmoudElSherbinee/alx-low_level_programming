@@ -14,6 +14,8 @@ char *cap_string(char *n)
 
 	int x;
 
+	int j;
+
 	char separators[] = " \t\n,;.!?\"(){}";
 
 	for (x = 0; x < 13; x++)
@@ -22,10 +24,16 @@ char *cap_string(char *n)
 		{
 			if (n[i] == separators[x])
 			{
-				if (n[i + 1] >= 97 && n[i + 1] <= 122)
+				j = i + 1;
+				while (n[j] != '\0' && !(n[j] >= 'A' && n[j] <= 'Z') && !(n[j] >= 'a' && n[j] <= 'z'))
 				{
-					n[i + 1] = n[i + 1] - 32;
+					j++;
 				}
+				if (n[j] >= 'a' && n[j] <= 'z')
+				{
+					n[j] -= 32;
+				}
+				i = j;
 			}
 		}
 	}
