@@ -18,7 +18,6 @@ char *infinite_add(char *n1, char *n2, char *r, int size_r)
     int n1dig;
     int n2dig;
     int carry;
-
     len1 = 0;
     len2 = 0;
     carry = 0;
