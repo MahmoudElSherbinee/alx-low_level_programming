@@ -3,10 +3,11 @@
 /**
  * infinite_add - function for adding two intergers
  *
- * @n: check the input
- * @n: check the input
+ * @n1: check the input
+ * @n2: check the input
  * @r: check the input
  * @size_r: check the input
+ * 
  * Return: the char
  */
 
