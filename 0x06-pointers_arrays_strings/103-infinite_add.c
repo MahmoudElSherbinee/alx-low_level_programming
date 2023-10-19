@@ -16,35 +16,35 @@
 
 char *infinite_add(char *n1, char *n2, char *r, int size_r)
 {
-    int length1;
-    int length2;
+    int len1;
+    int len2;
     int bigger;
     int x;
     int n1digit;
     int n2digit;
     int carry;
 
-    length1 = 0;
-    length2 = 0;
+    len1 = 0;
+    len2 = 0;
     bigger = 0;
     carry = 0;
 
-    while (n1[length1] != '\0')
+    while (n1[len1] != '\0')
     {
-        length1++;
+        len1++;
     }
-    while (n2[length2] != '\0')
+    while (n2[len2] != '\0')
     {
-        length2++;
+        len2++;
     }
 
-    if (length1 > length2)
+    if (len1 > len2)
     {
-        bigger = length1;
+        bigger = len1;
     }
     else
     {
-        bigger = length2;
+        bigger = len2;
     }
 
     if (bigger + 1 > size_r)
@@ -55,21 +55,21 @@ char *infinite_add(char *n1, char *n2, char *r, int size_r)
 
     for (x = bigger - 1; x >= 0; x--)
     {
-        length1--;
-        length2--;
+        len1--;
+        len2--;
 
-        if (length1 >= 0)
+        if (len1 >= 0)
         {
-            n1digit = n1[length1] - 48;
+            n1digit = n1[len1] - 48;
         }
         else
         {
             n1digit = 0;
         }
 
-        if (length2 >= 0)
+        if (len2 >= 0)
         {
-            n2digit = n2[length2] - 48;
+            n2digit = n2[len2] - 48;
         }
         else
         {
