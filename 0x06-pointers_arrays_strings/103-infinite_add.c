@@ -1,85 +1,81 @@
 #include "main.h"
 
 /**
- * _strlen - Calculate the lenght of a string.
- *
- * @str: String
- *
- * Return: Lenght of str
- */
+* rev_string - reverse array
+* @n: integer params
+* Return: 0
+*/
 
-int _strlen(char *str)
+void rev_string(char *n)
 {
-    int x;
+	int i = 0;
 
-    int len;
+	int j = 0;
 
-    len = 0;
+	char temp;
 
-    for (x = 0; str[x]; x++)
-        len++;
+	while (*(n + i) != '\0')
+	{
+		i++;
+	}
+	i--;
 
-    return (len);
+	for (j = 0; j < i; j++, i--)
+	{
+		temp = *(n + j);
+		*(n + j) = *(n + i);
+		*(n + i) = temp;
+	}
 }
 
 /**
- * infinite_add - Adds two numbers.
- *
- * @n1: First Number
- * @n2: Secend Number
- * @r: Buffer Where to store the result
- * @size_r: Size of the buffer r
- *
- * Return: Pointer to the buffer r or 0 if the buffer can fit the result
- */
+* infinite_add - add 2 numbers together
+* @n1: text representation of 1st number to add
+* @n2: text representation of 2nd number to add
+* @r: pointer to buffer
+* @size_r: buffer size
+* Return: pointer to calling function
+*/
+
 char *infinite_add(char *n1, char *n2, char *r, int size_r)
 {
-    int i;
+	int overflow = 0, i = 0, j = 0, digits = 0;
 
-    int l1;
+	int val1 = 0, val2 = 0, temp_tot = 0;
 
-    int l2;
-
-    int bigger;
-
-    int s;
-
-    int carry;
-
-    char t;
-
-    carry = 0;
-    i = 0;
-    l1 = _strlen(n1);
-    l2 = _strlen(n2);
-
-    bigger = l1 > l2 ? l1 : l2;
-
-    if (bigger + 1 >= size_r)
-        return (0);
-
-    l1--;
-    l2--;
-    while (l1 >= 0 || l2 >= 0 || carry != 0)
-    {
-        s = carry;
-
-        if (l1 >= 0)
-            s += n1[l1--] - '0';
-        if (l2 >= 0)
-            s += n2[l2--] - '0';
-
-        carry = s / 10;
-        r[i++] = s % 10 + '0';
-    }
-
-    r[i] = '\0';
-
-    for (i = 0; i <= (i - 1) / 2; i++)
-    {
-        t = r[i];
-        r[i] = r[i - 1 - i];
-        r[i - 1 - i] = t;
-    }
-    return (r);
+	while (*(n1 + i) != '\0')
+		i++;
+	while (*(n2 + j) != '\0')
+		j++;
+	i--;
+	j--;
+	if (j >= size_r || i >= size_r)
+		return (0);
+	while (j >= 0 || i >= 0 || overflow == 1)
+	{
+		if (i < 0)
+			val1 = 0;
+		else
+			val1 = *(n1 + i) - '0';
+		if (j < 0)
+			val2 = 0;
+		else
+			val2 = *(n2 + j) - '0';
+		temp_tot = val1 + val2 + overflow;
+		if (temp_tot >= 10)
+			overflow = 1;
+		else
+			overflow = 0;
+		if (digits >= (size_r - 1))
+			return (0);
+		*(r + digits) = (temp_tot % 10) + '0';
+		digits++;
+		j--;
+		i--;
+	}
+	if (digits == size_r)
+		return (0);
+	*(r + digits) = '\0';
+	rev_string(r);
+	return (r);
 }
