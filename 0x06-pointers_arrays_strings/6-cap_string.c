@@ -24,7 +24,20 @@ int lower(char c)
 int separator(char c)
 {
 	int x;
-	char separators[13] = " \t\n,;.!?\"(){}";
+	char separators[13];
+separators[0] = ' ';
+separators[1] = '\t';
+separators[2] = '\n';
+separators[3] = ',';
+separators[4] = ';';
+separators[5] = '.';
+separators[6] = '!';
+separators[7] = '?';
+separators[8] = '"';
+separators[9] = '(';
+separators[10] = ')';
+separators[11] = '{';
+separators[12] = '}';
 
 	for (x = 0; x < 13; x++)
 	{
