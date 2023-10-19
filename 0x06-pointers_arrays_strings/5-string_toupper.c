@@ -5,6 +5,7 @@
 *
 * @n:check the input2
 *
+* Return: the char
 */
 
 char *string_toupper(char *n)
