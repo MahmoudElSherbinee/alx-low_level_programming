@@ -1,59 +1,41 @@
 #include "main.h"
 
 /**
-* print_buffer - Calculate the lenght of a string.
+* print_buffer - Print a buffer.
 *
-* @b: String
-*
-* @size: String
+* @b: Pointer to buffer to print.
+* @size: Number of bytes to read.
 */
-
 void print_buffer(char *b, int size)
 {
 	int i;
-	int j;
-	char c;
 
-	if (size <= 0)
-	{
-		printf("\n");
-		return;
-	}
+	int j;
 
 	for (i = 0; i < size; i += 10)
 	{
-		printf("%08x ", i);
-		for (j = 0; j < 10; j++)
+		printf("%08x: ", i);
+
+		for (j = 0; j < 10; j += 2)
 		{
-			if (i + j < size)
-			{
-				printf("%02x", (unsigned char)b[i + j]);
-			}
+			if (i + j + 1 < size)
+				printf("%02x%02x ", b[i + j], b[i + j + 1]);
+			else if (i + j < size)
+				printf("%02x   ", b[i + j]);
 			else
-			{
-				printf("  ");
-			}
-			if (j % 2 == 1)
-			{
-				printf(" ");
-			}
+				printf("     ");
 		}
-		printf(" ");
-		for (j = 0; j < 10; j++)
+
+		for (j = 0; j < 10 && i + j < size; j++)
 		{
-			if (i + j < size)
-			{
-				c = b[i + j];
-				if (c >= ' ' && c <= '~')
-				{
-					printf("%c", c);
-				}
-				else
-				{
-					printf(".");
-				}
-			}
+			if (b[i + j] > 31 && b[i + j] < 126)
+				printf("%c", b[i + j]);
+			else
+				printf(".");
 		}
 		printf("\n");
 	}
+
+	if (size <= 0)
+		printf("\n");
 }
