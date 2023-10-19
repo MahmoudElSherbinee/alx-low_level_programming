@@ -1,5 +1,5 @@
 #include "main.h"
-#include <stdio.h>
+
 
 /**
  * lower - function to check if the character is lower case
@@ -61,8 +61,8 @@ separators[12] = '}';
 
 char *cap_string(char *n)
 {
-	int i;
 	char *p;
+	int i;
 
 	i = 0;
 	p = n;
