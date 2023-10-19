@@ -12,16 +12,21 @@
 
 int _strcmp(char *s1, char *s2)
 {
-	int length1 = 0;
+	int i;
 
-	int length2 = 0;
+	int length1;
 
-	for (int i = 0; s1[i] != '\0'; i++)
+	int length2;
+
+	length1 = 0;
+	length2 = 0;
+
+	for (i = 0; s1[i] != '\0'; i++)
 
 	{
 		length1++;
 	}
-	for (int i = 0; s2[i] != '\0'; i++)
+	for (i = 0; s2[i] != '\0'; i++)
 
 	{
 		length2++;
