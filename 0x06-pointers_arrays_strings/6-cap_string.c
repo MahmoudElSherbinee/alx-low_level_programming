@@ -12,13 +12,20 @@ char *cap_string(char *n)
 {
 	int i;
 
-	for (i = 0; n[i] != '\0'; i++)
+	int x;
+
+	char separators[] = " \t\n,;.!\"(){}";
+
+	for (x = 0; separators[x] != '\0'; x++)
 	{
-		if (n[i] == '\n' || n[i] == '\t' || n[i] == 32)
+		for (i = 0; n[i] != '\0'; i++)
 		{
-			if (n[i + 1] >= 97 && n[i + 1] <= 122)
+			if (n[i] == separators[x])
 			{
-				n[i + 1] = n[i + 1] - 32;
+				if (n[i + 1] >= 97 && n[i + 1] <= 122)
+				{
+					n[i + 1] = n[i + 1] - 32;
+				}
 			}
 		}
 	}
