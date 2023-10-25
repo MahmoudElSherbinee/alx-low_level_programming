@@ -4,37 +4,24 @@
 * _sqrt_helper - master function
 *
 * @n: check the input
-* @low: check the input
-* @high: check the input
+* @i: check the input
 *
 * Return: the required pow
 */
 
-int _sqrt_helper(int n, int low, int high)
+int _sqrt_helper(int n, int i)
 {
-	int mid;
-
-	int square;
-
-	if (low > high)
+	if (i * i == n)
 	{
-		return (-1);
+		return (i);
 	}
-
-	mid = low + (high - low) / 2;
-	square = mid * mid;
-
-	if (square == n)
+	else if (i * i < n)
 	{
-		return (mid);
-	}
-	else if (square < n)
-	{
-		return (_sqrt_helper(n, mid + 1, high));
+		return (_sqrt_helper(n, i + 1));
 	}
 	else
 	{
-		return (_sqrt_helper(n, low, mid - 1));
+		return (-1);
 	}
 }
 
@@ -48,15 +35,5 @@ int _sqrt_helper(int n, int low, int high)
 
 int _sqrt_recursion(int n)
 {
-	if (n < 0)
-	{
-		return (-1);
-	}
-
-	if (n == 0 || n == 1)
-	{
-		return (n);
-	}
-
-	return (_sqrt_helper(n, 0, n));
+	return (_sqrt_helper(n, 1));
 }
