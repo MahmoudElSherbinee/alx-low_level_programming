@@ -22,14 +22,10 @@ int main(int argc, char *argv[])
 		{
 			if (*character < '0' || *character > '9')
 			{
-				printf("Error\n");
-				return (1);
-			}
-			else
-			{
-				i = i + atoi(argv[argc]);
+				return (printf("Error\n"), 1);
 			}
 		}
+		i += atoi(argv[argc]);
 	}
 	printf("%d\n", i);
 	return (0);
