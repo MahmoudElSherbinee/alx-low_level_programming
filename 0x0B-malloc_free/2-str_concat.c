@@ -1,5 +1,4 @@
 #include "main.h"
-
 /**
 * str_concat - function for creating array
 *
@@ -8,45 +7,31 @@
 *
 * Return: 0 Always success
 */
-
 char *str_concat(char *s1, char *s2)
 {
 	char *ptr;
-
-	unsigned int len1;
-
-	unsigned int len2;
-
+	unsigned int len1 = 0;
+	unsigned int len2 = 0;
 	int i;
-
 	int size;
 
-	len1 = 0;
-	len2 = 0;
-
-    if (s1 == NULL)
-    {
+	if (s1 == NULL)
 		s1 = "";
-    }
-    if (s2 == NULL)
-    {
+
+	if (s2 == NULL)
 		s2 = "";
-    }
+
 	for (i = 0; s1[i]; i++)
-	{
 		len1++;
-	}
 	for (i = 0; s2[i]; i++)
-	{
 		len2++;
-	}
+
 	size = len1 + len2;
 	ptr = malloc(sizeof(char) * size + 1);
 	if (ptr == NULL)
 	{
 		return (NULL);
 	}
-
 	for (i = 0; s1[i] != '\0'; i++)
 	{
 		ptr[i] = s1[i];
@@ -56,6 +41,5 @@ char *str_concat(char *s1, char *s2)
 		ptr[len1 + i] = s2[i];
 	}
 	ptr[size] = '\0';
-
 	return (ptr);
 }
