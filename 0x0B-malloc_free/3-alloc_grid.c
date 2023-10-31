@@ -7,6 +7,7 @@
 *
 * Return: 0 Always success
 */
+
 int **alloc_grid(int width, int height)
 {
 	int i;
