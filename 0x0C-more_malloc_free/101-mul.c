@@ -61,9 +61,7 @@ void handle_error(void)
 * Return: Always 0.
 */
 int main(int argc, char *argv[])
-{
-	char *number1, *number2;
-
+{char *number1, *number2;
 	int len1, len2, total_len, i, carry, digit1, digit2, *result, nonzero = 0;
 
 	number1 = argv[1];
