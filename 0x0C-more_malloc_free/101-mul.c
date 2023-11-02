@@ -1,6 +1,6 @@
 #include <stdlib.h>
 #include <stdio.h>
-
+#include "main.h"
 /**
  * is_digit - function to make sure that the input is digit
  * 
@@ -28,7 +28,7 @@ int is_digit(const char *str)
  * 
  * Return: the length of the input
 */
-int calculate_length(const char *str)
+int calculate_length(char *str)
 {
     int length = 0;
     while (str[length] != '\0')
@@ -63,17 +63,18 @@ int main(int argc, char *argv[])
 {
     char *number1, *number2;
     int len1, len2, total_len, i, carry, digit1, digit2, *result, is_nonzero = 0;
-
-    if (argc != 3 || !is_digit(argv[1]) || !is_digit(argv[2]))
+    number1 = argv[1];
+    number2 = argv[2];
+    
+    if (argc != 3 || !is_digit(number1) || !is_digit(number2))
     {
         handle_error();
     }
-    number1 = argv[1];
-    number2 = argv[2];
+
     len1 = calculate_length(number1);
     len2 = calculate_length(number2);
     total_len = len1 + len2 + 1;
-    result = (int *)malloc(sizeof(int) * total_len);
+    result = malloc(sizeof(int) * total_len);
     if (!result)
     {
         return (1);
@@ -103,15 +104,18 @@ int main(int argc, char *argv[])
         if (result[i])
         {
             is_nonzero = 1;
-            printf("%d", result[i]);
+        }
+        if (is_nonzero)
+        {
+            _putchar(result[i] + '0');
         }
     }
     if (!is_nonzero)
     {
-        printf("0");
+        _putchar('0');
     }
 
-    printf("\n");
+    _putchar('\n');
     free(result);
     return (0);
 }
