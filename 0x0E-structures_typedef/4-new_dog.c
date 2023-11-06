@@ -34,7 +34,7 @@ void copyString(char *source, char *copy)
 {
 	int i;
 
-	for (i = 0; source[i] != '\0'; i++)
+	for (i = 0; source[i]; i++)
 	{
 		copy[i] = source[i];
 	}
@@ -64,16 +64,15 @@ dog_t *new_dog(char *name, float age, char *owner)
 		return (NULL);
 	}
 
-	NEWDOG_NAME = malloc(sizeof(char) * sizeof(length(name) + 1));
+	NEWDOG_NAME = malloc(sizeof(char) * (length(name) + 1));
 	if (NEWDOG_NAME == NULL)
 	{
 		free(NEWDOG);
 		return (NULL);
 	}
-	NEWDOG_OWNER = malloc(sizeof(char) * sizeof(length(owner) + 1));
+	NEWDOG_OWNER = malloc(sizeof(char) * (length(owner) + 1));
 	if (NEWDOG_OWNER == NULL)
 	{
-		free(NEWDOG_NAME);
 		free(NEWDOG);
 		return (NULL);
 	}
