@@ -1,4 +1,5 @@
 #include "dog.h"
+#include <stdlib.h>
 
 /**
 * free_dog - function that free a variable of type struct dog
@@ -10,7 +11,11 @@
 
 void free_dog(dog_t *d)
 {
-	if (d != NULL)
+	if (d == NULL)
+	{
+		return (NULL);
+	}
+	else
 	{
 		free(d->name);
 		free(d->owner);
