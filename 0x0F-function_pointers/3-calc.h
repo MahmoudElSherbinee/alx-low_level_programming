@@ -12,13 +12,13 @@
 *
 * Description: define the wanted
 */
-struct op_t
+typedef struct op_t
 {
 	char *operator;
 
 	int (*func)(int x, int y);
 
-};
+} op_t;
 
 /*--------------------*/
 
