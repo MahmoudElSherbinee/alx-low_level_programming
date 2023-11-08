@@ -36,7 +36,7 @@ int main(int argc, char *argv[])
 	{
 		unsigned char opcode = *((unsigned char *)(main_addr + i));
 
-		printf("%02x", opcode);
+		printf("%02hhx", opcode);
 	}
 
 	printf("\n");
