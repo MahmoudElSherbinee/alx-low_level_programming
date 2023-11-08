@@ -1,6 +1,5 @@
 #include <stdio.h>
 #include <stdlib.h>
-#include "function_pointers.h"
 
 /**
  * main - check the code
@@ -36,9 +35,12 @@ int main(int argc, char *argv[])
 	{
 		unsigned char opcode = *((unsigned char *)(main_addr + i));
 
-		printf("%02hhx ", opcode);
+		printf("%02hhx", opcode);
+		if (i < num_bytes - 1)
+		{
+			printf(" ");
+		}
 	}
-
 	printf("\n");
 
 	return (0);
