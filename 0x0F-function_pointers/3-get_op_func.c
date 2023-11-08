@@ -9,7 +9,7 @@
 *
 */
 
-int (*get_op_func(char *s))(int x, int y)
+int (*get_op_func(char *s))(int, int)
 {
 	op_t ops[] = {
 		{"+", op_add},
@@ -19,7 +19,7 @@ int (*get_op_func(char *s))(int x, int y)
 		{"%", op_mod},
 		{NULL, NULL}
 		};
-	int i;
+	int i = 0;
 
 	while (i < 5)
 	{

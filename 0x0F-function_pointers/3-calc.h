@@ -16,7 +16,7 @@ typedef struct op_t
 {
 	char *operator;
 
-	int (*func)(int x, int y);
+	int (*func)(int a, int b);
 
 } op_t;
 
