@@ -1,17 +1,19 @@
 #include <stdio.h>
 #include <stdlib.h>
+#include "function_pointers.h"
 
 /**
-* main - check the code
-*
-* @argc: number of inputs
-* @argv: value of inputs
-*
-* Return: Always 0.
-*/
+ * main - check the code
+ *
+ * @argc: number of inputs
+ * @argv: value of inputs
+ *
+ * Return: Always 0.
+ */
 
 int main(int argc, char *argv[])
 {
+	char *main_addr = (char *)main;
 	int num_bytes;
 
 	int i;
@@ -29,8 +31,6 @@ int main(int argc, char *argv[])
 		printf("Error\n");
 		return (2);
 	}
-
-	void *main_addr = &main;
 
 	for (i = 0; i < num_bytes; i++)
 	{
