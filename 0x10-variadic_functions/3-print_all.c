@@ -46,9 +46,7 @@ void print_all(const char *const format, ...)
 		}
 		else if (format[x] != 'c' || format[x] != 'i'
 		|| format[x] != 'f' || format[x] != 's')
-		{
 			continue;
-		}
 		if (x != numofelem - 1)
 			printf(", ");
 	}
