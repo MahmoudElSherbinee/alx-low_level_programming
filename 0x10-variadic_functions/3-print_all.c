@@ -1,57 +1,54 @@
 #include "variadic_functions.h"
 
 /**
- * print_all - function that prints strings, followed by a new line.
- *
- * @format: the number of data type to be printed
- * @...: the arguments will be passed
- *
- * Return: Nothing.
- */
+* print_all - function that prints strings, followed by a new line.
+*
+* @format: the number of data type to be printed
+* @...: the arguments will be passed
+*
+* Return: Nothing.
+*/
 
 void print_all(const char *const format, ...)
 {
-    va_list arguments;
-    int numofelem = strlen(format);
-    int x;
-    va_start(arguments, format);
+	int i = 0;
 
-    for (x = 0; x < numofelem; x++)
-    {
-        if (format[x] == 'c')
-        {
-            char c = va_arg(arguments, int);
-            printf("%c", c);
-        }
-        else if (format[x] == 'i')
-        {
-            int i = va_arg(arguments, int);
-            printf("%d", i);
-        }
-        else if (format[x] == 'f')
-        {
-            double f = va_arg(arguments, double);
-            printf("%f", f);
-        }
-        else if (format[x] == 's')
-        {
-            char *s = va_arg(arguments, char *);
-            if (s == NULL)
-                printf("(nil)");
-            else
-                printf("%s", s);
-        }
-        else
-        {
-            continue;
-        }
+	va_list arguments;
+	char *x;
 
-        if (x != numofelem - 1)
-        {
-            printf(", ");
-        }
-    }
+	va_start(arguments, format);
 
-    va_end(arguments);
-    printf("\n");
+	while (format && format[i])
+	{
+		switch (format[i])
+		{
+		case 'c':
+			printf("%c", va_arg(arguments, int));
+			break;
+
+		case 'i':
+			printf("%d", va_arg(arguments, int));
+			break;
+
+		case 'f':
+			printf("%f", va_arg(arguments, double));
+			break;
+
+		case 's':
+			x = va_arg(arguments, char *);
+			printf("%s", x == NULL ? "(nil)" : x);
+			break;
+
+		default:
+			i++;
+			continue;
+		}
+
+		if (format[i + 1] != '\0')
+			printf(", ");
+
+		i++;
+	}
+	printf("\n");
+	va_end(arguments);
 }
