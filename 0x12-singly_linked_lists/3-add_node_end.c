@@ -13,15 +13,14 @@
 */
 list_t *add_node_end(list_t **head, const char *str)
 {
-    /* Create a temporary pointer */
-    list_t *temp;
+	/* Create a temporary pointer */
+	list_t *temp;
 
 	/* Create a new node */
 	list_t *new_node = malloc(sizeof(list_t));
 
 	if (new_node == NULL)
 		return (NULL);
-
 	/* Check if str is NULL */
 	if (str == NULL)
 		return (NULL);
@@ -33,10 +32,8 @@ list_t *add_node_end(list_t **head, const char *str)
 		free(new_node);
 		return (NULL);
 	}
-
 	/* Set the next pointer of the new node to NULL (end of the list) */
 	new_node->next = NULL;
-
 	/* If the list is empty, make the new node the head of the list */
 	if (*head == NULL)
 	{
@@ -51,11 +48,9 @@ list_t *add_node_end(list_t **head, const char *str)
 		{
 			temp = temp->next;
 		}
-
 		/* Set the next pointer of the last node to the new node */
 		temp->next = new_node;
 	}
-
 	/* Return the address of the new element */
 	return (new_node);
 }
