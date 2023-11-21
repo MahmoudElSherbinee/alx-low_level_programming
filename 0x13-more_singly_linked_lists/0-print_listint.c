@@ -15,7 +15,7 @@ size_t print_listint(const listint_t *h)
 	/*
 	* Iterate through the linked list using a loop.
 	* Print the value of each node and
-    * update the pointer to move to the next node.
+	* update the pointer to move to the next node.
 	*/
 	for (i = 0; h; i++)
 	{
@@ -24,3 +24,4 @@ size_t print_listint(const listint_t *h)
 
 		return (i);
 	}
+}
