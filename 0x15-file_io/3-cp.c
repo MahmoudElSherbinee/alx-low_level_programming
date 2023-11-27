@@ -1,5 +1,15 @@
+#include <fcntl.h>
+#include <unistd.h>
+#include <sys/stat.h>
+#include <stdio.h>
+#include <stdlib.h>
+
+#define BUFFSIZE 1024
+
+void print_exit(int code, const char *msg, const char *file);
+
 /**
-* main - Copies the content from one file to another.
+* main - function Copies the content from one file to another.
 *
 * @ac: Count of command-line arguments
 * @av: Array of command-line arguments
@@ -49,6 +59,7 @@ int main(int ac, char **av)
 * @msg: Error message to print
 * @file: File name associated with the error
 */
+
 void print_exit(int code, const char *msg, const char *file)
 {
 	dprintf(STDERR_FILENO, msg, file);
