@@ -28,16 +28,13 @@ void copy_file(const char *file_from, const char *file_to)
 	int fd_to = 0, fd_from = 0;
 	ssize_t bytes;
 	char buffer[BUFFER];
-	/* Open file_from for reading */
-	fd_from = open(file_from, O_RDONLY);
 
+	fd_from = open(file_from, O_RDONLY);
 	if (fd_from == -1)
 	{
 		dprintf(STDERR_FILENO, "Error: Can't read from file %s\n", file_from);
 		exit(98);
 	}
-	/* Open file_to for writing, create if it doesn't exist, */
-	/* truncate if it does */
 	fd_to = open(file_to, O_WRONLY | O_CREAT | O_TRUNC, PERMS);
 
 	if (fd_to == -1)
@@ -45,23 +42,27 @@ void copy_file(const char *file_from, const char *file_to)
 		dprintf(STDERR_FILENO, "Error: Can't write to %s\n", file_to);
 		exit(99);
 	}
-	/* Copy content from file_from to file_to */
 	while ((bytes = read(fd_from, buffer, BUFFER)) > 0)
 	{
 		if (write(fd_to, buffer, bytes) != bytes)
-		{
-			dprintf(STDERR_FILENO, "Error: Can't write to %s\n", file_to);
+		{dprintf(STDERR_FILENO, "Error: Can't write to %s\n", file_to);
 			exit(99);
 		}
 		if (bytes == -1)
-		{
-			dprintf(STDERR_FILENO, "Error: Can't read from file %s\n", file_from);
+		{dprintf(STDERR_FILENO, "Error: Can't read from file %s\n", file_from);
 			exit(98);
 		}
 	}
-	if (close(fd_from) == -1 || close(fd_to) == -1)
+	fd_from = close(fd_from);
+	fd_to = close(fd_to);
+	if (fd_from)
 	{
-		dprintf(STDERR_FILENO, "Error: Can't close file fd %d\n", fd_from);
+		dprintf(STDERR_FILENO, "Error: Can't close fd %d\n", fd_from);
+		exit(100);
+	}
+	if (fd_to)
+	{
+		dprintf(STDERR_FILENO, "Error: Can't close fd %d\n", fd_from);
 		exit(100);
 	}
 }
