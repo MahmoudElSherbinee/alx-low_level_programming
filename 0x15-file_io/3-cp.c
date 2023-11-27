@@ -31,7 +31,7 @@ void copy_file(const char *file_from, const char *file_to)
 
 	if (fd_from == -1)
 	{
-		dprintf(2, "Error: Can't read from file %s\n", file_from);
+		dprintf(2, "Error: Can't read from f  ile %s\n", file_from);
 		exit(98);
 	}
 
