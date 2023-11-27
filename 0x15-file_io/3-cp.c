@@ -55,7 +55,7 @@ void copy_file(const char *file_from, const char *file_to)
 		}
 		if (bytes == -1)
 		{
-			dprintf(STDERR_FILENO, "Error: Can't read from file %s\n", fd_from);
+			dprintf(STDERR_FILENO, "Error: Can't read from file %s\n", file_from);
 			exit(99);
 		}
 	}
