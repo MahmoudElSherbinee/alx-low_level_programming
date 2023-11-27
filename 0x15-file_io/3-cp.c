@@ -23,11 +23,11 @@
 
 void copy_file(const char *file_from, const char *file_to)
 {
-	int fd_to;
+	int fd_to = 0, fd_from = 0;
 	ssize_t bytes_read, bytes_written;
 	char buffer[1024];
 	/* Open file_from for reading */
-	int fd_from = open(file_from, O_RDONLY);
+	fd_from = open(file_from, O_RDONLY);
 
 	if (fd_from == -1)
 	{
