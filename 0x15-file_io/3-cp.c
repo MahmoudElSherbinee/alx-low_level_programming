@@ -43,12 +43,16 @@ int main(int ac, char **av)
 	if (bytes_read == -1)
 		print_exit(98, "Error: Can't read from file %s\n", av[1]);
 
-	if (close(src) == -1 || close(dst) == -1)
+	if (close(src) == -1)
 	{
-		dprintf(STDERR_FILENO, "Error: Can't close file fd %d\n", dst);
+		dprintf(STDERR_FILENO, "Error: Can't close fd %d\n", src);
 		exit(100);
 	}
-
+	if (close(dst) == -1)
+	{
+		dprintf(STDERR_FILENO, "Error: Can't close fd %d\n", dst);
+		exit(100);
+	}
 	return (0);
 }
 
