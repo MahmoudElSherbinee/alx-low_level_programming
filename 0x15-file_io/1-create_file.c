@@ -30,7 +30,7 @@ int create_file(const char *filename, char *text_content)
 		return (-1);
 	}
 
-	if (length != 0)
+	if (length)
 	{
 		num_of_bytes = write(descriptor, text_content, length);
 	}
