@@ -16,9 +16,8 @@ int create_file(const char *filename, char *text_content)
 {
 	ssize_t descriptor;
 	ssize_t num_of_bytes = 0;
-	int length = strlen(text_content);
 
-	if (!filename)
+	if (filename == NULL)
 	{
 		return (-1);
 	}
@@ -32,9 +31,9 @@ int create_file(const char *filename, char *text_content)
 
 	if (text_content != NULL)
 	{
-		num_of_bytes = write(descriptor, text_content, length);
+		num_of_bytes = write(descriptor, text_content, strlen(text_content));
 	}
 	close(descriptor);
 
-	return (num_of_bytes == length ? 1 : -1);
+	return (num_of_bytes == strlen(text_content) ? 1 : -1);
 }
