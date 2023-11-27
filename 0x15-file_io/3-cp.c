@@ -41,7 +41,7 @@ void copy_file(const char *file_from, const char *file_to)
 
 	if (fd_to == -1)
 	{
-		dprintf(STDERR_FILENO, "Error: Can't write to file %s\n", file_to);
+		dprintf(STDERR_FILENO, "Error: Can't write to %s\n", file_to);
 		exit(99);
 	}
 
@@ -58,7 +58,7 @@ void copy_file(const char *file_from, const char *file_to)
 	/* Close file descriptors */
 	if (close(fd_from) == -1 || close(fd_to) == -1)
 	{
-		dprintf(STDERR_FILENO, "Error: Can't close file descriptor\n");
+		dprintf(STDERR_FILENO, "Error: Can't close file fd %d\n", fd_from);
 		exit(100);
 	}
 	/* Set permissions for file_to to rw-rw-r-- */
