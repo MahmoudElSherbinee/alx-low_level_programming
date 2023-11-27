@@ -45,7 +45,7 @@ int main(int ac, char **av)
 
 	if (close(src) == -1 || close(dst) == -1)
 	{
-		dprintf(STDERR_FILENO, "Error: Can't close file fd %d\n", src);
+		dprintf(STDERR_FILENO, "Error: Can't close file fd %d\n", dst);
 		exit(100);
 	}
 
