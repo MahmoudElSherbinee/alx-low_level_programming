@@ -9,14 +9,19 @@
 
 size_t dlistint_len(const dlistint_t *h)
 {
+	/* Initialize count to 0, which will keep track of the number of count */
 	size_t count = 0;
 
+	/* Traverse the doubly linked list until the end is reached (head is NULL) */
 	while (h)
 	{
+		/* Increment count for each node encountered */
 		count++;
+		/* Move to the next node in the list */
 		h = h->next;
 	}
 
+	/* Return the total number of count in the doubly linked list */
 	return (count);
 }
 
