@@ -89,11 +89,11 @@ char *shash_table_get(const shash_table_t *ht, const char *key);
 void shash_table_print(const shash_table_t *ht);
 void shash_table_print_rev(const shash_table_t *ht);
 void shash_table_delete(shash_table_t *ht);
-int updateKey(hash_table_t *ht, const char *key, const char *value,
-	       unsigned long int index);
+int updateKey(hash_table_t *hash_table, const char *key, const char *value,
+			   unsigned long int index);
 int key_update_s(shash_table_t *ht, const char *key, const char *value,
 	       unsigned long int index);
-hash_node_t *create_item(const char *key, const char *value);
+hash_node_t *item_creation(const char *key, const char *value);
 shash_node_t *create_item_s(const char *key, const char *value);
 int insert_dlist(shash_node_t *new_item, shash_table_t *ht);
 
