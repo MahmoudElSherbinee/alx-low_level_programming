@@ -17,7 +17,6 @@ shash_table_t *shash_table_create(unsigned long int size)
 	unsigned long int i;
 	shash_table_t *stable;
 
-	/* Check for invalid size. */
 	if (size < 1)
 	{
 		perror("Size must be greater than 0\n");
@@ -66,26 +65,22 @@ shash_table_t *shash_table_create(unsigned long int size)
  */
 int shash_table_set(shash_table_t *ht, const char *key, const char *value)
 {
-	unsigned long int index; /* Index calculated using key_index function. */
-	shash_node_t *new_item;	 /* Pointer to the new sorted hash node. */
+	unsigned long int index;
+	shash_node_t *new_item;
 	int rv;
 
-	/* Check for NULL pointers and invalid size. */
 	if (ht == NULL || ht->array == NULL || ht->size == 0 ||
-		key == NULL || strlen(key) == 0 || value == NULL)
+	    key == NULL || strlen(key) == 0 || value == NULL)
 		return (0);
 
 	index = key_index((const unsigned char *)key, ht->size);
 
-	/* Check if the key exists and update its value. */
 	rv = key_update_s(ht, key, value, index);
 	if (rv == 1)
 		return (1);
 	if (rv == -1)
 		return (0);
 
-	/* Key not found, create a new sorted hash node */
-	/* and insert it into the sorted hash table. */
 	new_item = create_item_s(key, value);
 	if (new_item == NULL)
 		return (0);
@@ -122,7 +117,7 @@ int shash_table_set(shash_table_t *ht, const char *key, const char *value)
  * new node is inserted, or -1 if memory allocation for the new value fails.
  */
 int key_update_s(shash_table_t *ht, const char *key, const char *value,
-				 unsigned long int index)
+	       unsigned long int index)
 {
 	shash_node_t *current = ht->array[index];
 	char *new_value;
@@ -138,23 +133,8 @@ int key_update_s(shash_table_t *ht, const char *key, const char *value,
 			current->value = new_value;
 			return (1);
 		}
-		current = current->snext;
+		current = current->next;
 	}
-
-	/* Key not found, create a new node */
-	/* and insert it into the sorted hash table. */
-	new_value = strdup(value);
-	if (new_value == NULL)
-		return (-1);
-
-	current = create_item_s(key, new_value);
-	if (current == NULL)
-	{
-		free(new_value);
-		return (-1);
-	}
-
-	insert_dlist(current, ht);
 	return (0);
 }
 
@@ -181,18 +161,11 @@ shash_node_t *create_item_s(const char *key, const char *value)
 
 	new_item->key = strdup(key);
 	if (new_item->key == NULL)
-	{
-		free(new_item);
 		return (NULL);
-	}
 
 	new_item->value = strdup(value);
 	if (new_item->value == NULL)
-	{
-		free(new_item->key);
-		free(new_item);
 		return (NULL);
-	}
 
 	new_item->next = NULL;
 	new_item->sprev = NULL;
@@ -216,7 +189,7 @@ int insert_dlist(shash_node_t *new_item, shash_table_t *ht)
 {
 	shash_node_t *current;
 
-	/* Empty list or new node key is smaller than the head's key. */
+	/**** Empty list ****/
 	if (ht->shead == NULL || strcmp(new_item->key, ht->shead->key) < 0)
 	{
 		new_item->snext = ht->shead;
@@ -230,7 +203,7 @@ int insert_dlist(shash_node_t *new_item, shash_table_t *ht)
 	{
 		current = ht->shead;
 		while (current->snext != NULL &&
-			   strcmp(new_item->key, current->snext->key) >= 0)
+		       strcmp(new_item->key, current->snext->key) >= 0)
 			current = current->snext;
 
 		new_item->sprev = current;
@@ -261,9 +234,8 @@ int insert_dlist(shash_node_t *new_item, shash_table_t *ht)
  */
 char *shash_table_get(const shash_table_t *ht, const char *key)
 {
-	shash_node_t *current; /* Pointer to traverse the sorted linked list. */
+	shash_node_t *current;
 
-	/* Check for NULL pointer and an empty sorted linked list. */
 	if (ht == NULL || ht->shead == NULL)
 		return (NULL);
 
@@ -275,7 +247,7 @@ char *shash_table_get(const shash_table_t *ht, const char *key)
 		current = current->snext;
 	}
 
-	return (NULL); /* Key not found in the sorted hash table. */
+	return (NULL);
 }
 
 /**
@@ -289,11 +261,9 @@ char *shash_table_get(const shash_table_t *ht, const char *key)
  */
 void shash_table_print(const shash_table_t *ht)
 {
-	/* Pointer to traverse the sorted linked list. */
 	shash_node_t *current;
-	int flag = 0; /* Flag to track whether a comma is needed for formatting. */
+	int flag = 0;
 
-	/* Check for NULL pointer and an empty sorted linked list. */
 	if (ht == NULL || ht->shead == NULL)
 		return;
 
@@ -321,11 +291,9 @@ void shash_table_print(const shash_table_t *ht)
  */
 void shash_table_print_rev(const shash_table_t *ht)
 {
-	/* Pointer to traverse the sorted linked list. */
 	shash_node_t *current;
-	int flag = 0; /* Flag to track whether a comma is needed for formatting. */
+	int flag = 0;
 
-	/* Check for NULL pointer and an empty sorted linked list. */
 	if (ht == NULL || ht->stail == NULL)
 		return;
 
@@ -353,25 +321,20 @@ void shash_table_print_rev(const shash_table_t *ht)
  */
 void shash_table_delete(shash_table_t *ht)
 {
-	/* Index variable for iterating through the hash table. */
 	unsigned long int i;
-	shash_node_t *current; /* Pointer to traverse the linked list. */
+	shash_node_t *current;
 
-	/* Check for NULL pointer. */
 	if (ht == NULL)
 		return;
 
-	/* Check if the hash table has no elements or is invalid. */
 	if (ht->size < 1 || ht->array == NULL)
 	{
 		free(ht);
 		return;
 	}
 
-	/* Iterate through each index of the hash table. */
 	for (i = 0; i < ht->size; i++)
 	{
-		/* Traverse the linked list at each index and free memory. */
 		while (ht->array[i])
 		{
 			current = ht->array[i];
@@ -381,8 +344,6 @@ void shash_table_delete(shash_table_t *ht)
 			free(current);
 		}
 	}
-
-	/* Free the array of linked lists and the hash table structure. */
 	free(ht->array);
 	free(ht);
 }
